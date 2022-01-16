@@ -1,38 +1,176 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal{
+z-index: 200;
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+margin: auto;
+background-color: rgba(0, 0, 0, 0.39);
 }
+.text_titulo{
+ 
+font-weight: bold;
+font-size: 35px;
+line-height: 47px;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+
+color: #011826;
+}
+.text_normal{
+  color: #3F618C;
+}
+.text_titulo02{
+  color: #F20544;
+}
+.text_subtitulo{
+  color: #011826;
+}
+
+
+
+
+
+
+
+
+
+
+.btn_primary{
+  background-color: #F20544;
+  color: #fff;
+}
+.btn_primary:hover{
+  background-color: #b40131f8;
+}
+
+.btn_secondary{
+  background-color: #8C2656;
+  color: #fff;
+}
+.btn_secondary:hover{
+  background-color: #5c1b39;
+}
+.btn_darck{
+  border:2px solid #012340;
+  color: #012340;
+}
+.btn_darck:hover{
+  background-color: #012340;
+  color: white;
+}
+
+.nav_active{
+  background-color: rgba(242, 5, 68, 0.08);
+  color: #F20544;
+}
+.nav_item:hover{
+  background-color: #f2054410;
+  color: #f20544;
+}
+
+.nav_active::before{
+  content: "";
+  height: 100%;
+  width: 10px;
+  background-color:#F20544;
+  border-radius: 0 10px 10px 0;
+}
+/****************Card Cliente*******************/
+.content_card:hover{
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  transform: scale(1.04)
+}
+
+
+/*********Login**************/
+.content_fondo{
+  top: 0;
+  position: absolute;
+}
+.imgFondo{
+  top: 0;
+  position: absolute;
+  width: 1217px;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -10;
+}
+.text_frase::before{
+  content: "";
+  background-image: url("data:image/svg+xml,%3Csvg width='27' height='27' viewBox='0 0 27 27' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.6657 2.37024C6.8812 2.70643 0.00378 3.47031 0 12.8405L0 24.6298H10.6763V12.0161H7.13129C6.90671 8.64797 9.68017 7.77827 12.6962 7.11068L11.6657 2.37024V2.37024ZM25.9695 2.37024C21.185 2.70643 14.3076 3.47033 14.3038 12.8405V24.6298H24.9802V12.0161H21.4351C21.2105 8.64797 23.984 7.77827 27 7.11068L25.9695 2.37024V2.37024Z' fill='white'/%3E%3C/svg%3E%0A");
+  display: block;
+  background-repeat: no-repeat;
+  background-position: top;
+  width: 57px;
+  height: 35px;
+}
+.text_frase::after{
+  content: "";
+  background-image: url("data:image/svg+xml,%3Csvg width='27' height='27' viewBox='0 0 27 27' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.3343 24.6298C20.1188 24.2936 26.9962 23.5297 27 14.1595L27 2.37021H16.3237L16.3237 14.9839L19.8687 14.9839C20.0933 18.352 17.3198 19.2217 14.3038 19.8893L15.3343 24.6298V24.6298ZM1.03054 24.6298C5.81501 24.2936 12.6924 23.5297 12.6962 14.1595L12.6962 2.37021L2.01982 2.37021L2.01982 14.9839L5.56488 14.9839C5.7895 18.352 3.01599 19.2217 -1.07288e-06 19.8893L1.03054 24.6298V24.6298Z' fill='white'/%3E%3C/svg%3E%0A");
+  display: block;
+  background-repeat: no-repeat;
+  background-position: top;
+  width: 57px;
+  height: 35px;
+
+}
+
+
+.fondo{
+  z-index: -5;
+  background: linear-gradient(101deg, rgba(1,35,64,0.196516106442577) 0%, rgba(1,35,64,1) 65%);
+  width: 100vw;
+  height: 100vh;
+}
+.content-login{
+  background-color: white;
+  width: 570px;
+    height: 375px;
+}
+.text_titulo_login{
+ 
+  font-style: normal;
+  font-weight: 500;
+  font-size: 34px;
+
+  color: #011826;
+}
+.inputText{
+  outline: none;
+  border: 1px solid #011826;
+}
+.inputText:focus{
+  outline: 2px solid #01182659;
+}
+.inputText::placeholder{
+  font-weight: 300;
+}
+/************CArd Plan***********/
+.card_plan{
+  background-color: #011826;
+  cursor: pointer;
+  border: none !important;
+}
+.card_plan:hover{
+  background-color: #011826e5;
+}
+.card_active{
+  border : 2px solid #f20544 !important;
+}
+
