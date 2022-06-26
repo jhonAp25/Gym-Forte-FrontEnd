@@ -26,12 +26,14 @@ const ClienteProvider = ({children}) => {
             celular: dat.celular,
             correo: dat.correo,
             sexo: dat.sexo ,
+            dni : dat.dni,
             foto: null
           
           
         }).then((response)=>{
         
           getCliente()
+          alert(response.data.id)
           setIdCliente(response.data.id)
           toast.success('Cliente nuevo '+ response.data.nombre+' agregado ✔'); 
 

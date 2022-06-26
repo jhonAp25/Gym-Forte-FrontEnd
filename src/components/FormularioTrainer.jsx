@@ -163,12 +163,12 @@ const FormularioTrainer = ({openModal , hidden ,postTrainer }) => {
                     <div className='flex w-full justify-between space-x-3'>
 
                         <div className=' w-1/2 flex items-center ' onClick={()=>selectGenero('M')} >
-                            <label className='w-full p-2 bg-blue-200 hover:bg-blue-300 cursor-pointer text-center font-semibold hover:text-white focus:ring focus:ring-4 focus:ring-blue-100' style={ selectGen==='M' ? {background:"#3b82f6" , color: 'white' }: null} htmlFor="masculino"> <span> M  </span> </label>
+                            <label className='w-full p-2  btn_darck  cursor-pointer text-center font-semibold hover:text-white focus:ring focus:ring-4 focus:ring-blue-100' style={ selectGen==='M' ? {background:"#012340" , color: 'white' }: null}  htmlFor="masculino"> <span> M  </span> </label>
                             <input className='hidden' type="radio" id="masculino" name="genero" value="M"{...register("genero",{required:true})}   /> 
                         </div>
                             
                         <div className='w-1/2 flex items-center'  onClick={()=>selectGenero('F')}>
-                            <label  className='w-full p-2 bg-blue-200 hover:bg-blue-300 cursor-pointer text-center font-semibold hover:text-white'  style={ selectGen==='F' ? {background:"#3b82f6" , color: 'white' }: null} htmlFor="femenino"> <span> F  </span></label>
+                            <label  className='w-full p-2  btn_darck cursor-pointer text-center font-semibold hover:text-white' style={ selectGen==='F' ? {background:"#012340" , color: 'white' }: null} htmlFor="femenino"> <span> F  </span></label>
                             <input className='hidden' type="radio" id="femenino" name="genero" value="F " {...register("genero",{required:true})}  />
                         </div>
                        
@@ -229,8 +229,8 @@ const FormularioTrainer = ({openModal , hidden ,postTrainer }) => {
 
 
             <div className='flex pt-3 pr-3 pl-3 space-x-3'>
-                <button className='w-9/12 bg-blue-500 hover:bg-blue-600 p-3 text-white'>AGREGAR </button>
-                <button type='button' className='w-3/12 bg-indigo-200 hover:bg-indigo-300 p-3 text-white ' onClick={()=> openModal() } >CANCELAR </button>
+                <button className='w-9/12 btn_primary p-3 text-white'>AGREGAR </button>
+                <button type='button' className='w-3/12 btn_secondary p-3 text-white ' onClick={()=> openModal() } >CANCELAR </button>
             </div>
 
             </div> 

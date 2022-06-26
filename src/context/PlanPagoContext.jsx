@@ -15,7 +15,7 @@ const PlanPagoProvider = ({children}) => {
     
     /********* STATES ************ */
     const [ plan , setPlan] = useState([])
-    const [mensualidad , setMensualidad]=useState([])
+    const [pago , setPago]=useState([])
     const [clienteMatricula , setClienteMatricula] = useState([])
 
 
@@ -42,8 +42,8 @@ const PlanPagoProvider = ({children}) => {
               toast.error('Error en el servidor ✔') })
       }
 
-/********************MATRICULA - RESERVA******************************** */
-    const postMatricula=(plan,cliente)=>{
+/********************- RESERVA******************************** */
+    const postReserva=(plan,cliente)=>{
         axios.post(url + 'reserva' , {
             cliente: cliente,
             estado: true,
@@ -58,10 +58,10 @@ const PlanPagoProvider = ({children}) => {
     }
 
 
-    const getMatriculaId=(id)=>{
-        axios.get(url + 'reserva/buscarReservaBy/'+ id ).then((response) =>{
+    const getReservaId=(id)=>{
+        axios.get(url + 'reserva/buscarReservaByCliente/'+ id ).then((response) =>{
             setClienteMatricula(response.data);
-            console.log(response.data);
+            console.log(response);
         }).catch((error)=>{
             console.log(error);
         })
@@ -84,17 +84,25 @@ const PlanPagoProvider = ({children}) => {
           
         })
       }
+/***********************PAGO********************** */
 
-
-      const getMensualidad=()=>{
-          axios.get(url + 'mensualidad').then(({data})=>{
-              setMensualidad(data)
+      const getPagoCliente=(id)=>{
+          axios.get(url + 'pago/' + id).then(({data})=>{
+              setPago(data)
+             
 
           }).catch((error)=> console.log(error.response))
       }
    
 
-
+      const postPagoCliente=(pago)=>{
+        axios.put(url + 'pago/' + pago.id).then(({data})=>{
+            
+            console.log(data);
+            getPagoCliente(pago.reserva.cliente.id)
+          //  toast.success(data)
+        }).catch((error)=> console.log(error))
+    }
 
 
     useEffect(() => {
@@ -105,7 +113,7 @@ const PlanPagoProvider = ({children}) => {
 
 
     return(
-        <Provider value={{getPlan, plan,mensualidad ,clienteMatricula, postPlan, postMatricula, getMensualidad,getMatriculaId}}>
+        <Provider value={{getPlan, plan,pago ,clienteMatricula, postPlan, postReserva, getPagoCliente,getReservaId,postPagoCliente}}>
         {children}
     </Provider>
     )

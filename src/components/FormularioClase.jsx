@@ -48,7 +48,7 @@ const FormularioClase = ({ hidden, openModal , newDisciplina, setCancel, dateTim
             <form className=' flex flex-col  bg-white ' style={{width : '40%'}} onSubmit={handleSubmit(onSubmit)} >
                 
             <div className='w-full p-3 '>
-                <p className=' text-gray-900 text-2xl font-bold text-center' >Clase-Cardio  </p>
+                <p className=' text-gray-900 text-2xl font-bold text-center' >Clase </p>
             </div>
             
 

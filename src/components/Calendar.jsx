@@ -14,6 +14,7 @@ import events from '../util/events'
 
 const Selectable =({openModal, newDisciplina, hidden, setDateTime,newEvento, setNewEvento })=> {
 
+  const { clase} =useContext(ClaseContext)
 
 
 
@@ -68,6 +69,24 @@ const Selectable =({openModal, newDisciplina, hidden, setDateTime,newEvento, set
 
 
   }
+
+  useEffect(() => {
+
+    console.log(clase);
+    clase.forEach(element => {
+    
+      setNewEvento((oldArray) => [
+      ...oldArray,
+      {
+        title: element.disciplina.nombre,
+        start: new Date(element.horaIni),
+        end: new Date(element.horaFin),
+      },
+    ]);
+  });
+ 
+  
+  }, [newDisciplina]);
 
 
   

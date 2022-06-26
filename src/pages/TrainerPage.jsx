@@ -48,7 +48,7 @@ const TrainerPage = () => {
 
        
 
-        <div className='w-full flex mt-10'>
+        <div className='w-full flex mt-10 mb-5'>
                 <div className='w-full  rounded-full border flex items-center bg-white focus:ring-2   border border-gray-400  'style={{width: '40%'}}  >
                     <input type="text" onChange={(e)=>filtroTrainer(e) }  name="" className='w-full p-2 rounded-full  focus:outline-none'  />  <FiSearch size={20} color='#011826' className='mr-3' /> 
                 </div>
@@ -56,7 +56,7 @@ const TrainerPage = () => {
         </div>
 
                         
-         <div className='w-full  p-2 grid grid-cols-3 gap-4 overflow-y-auto' style={{maxHeight: '40rem'}} >
+         <div className='w-full  p-2 grid grid-cols-3 gap-4 overflow-y-auto' style={{maxHeight: '36rem'}} >
 
             {trainer.map(t=>(
                 <CardTrainer data={t} openModalUpdat={openModalUpdat} />

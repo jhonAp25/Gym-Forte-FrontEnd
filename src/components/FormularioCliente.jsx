@@ -14,6 +14,7 @@ const schema = yup.object().shape({
     apellido: yup.string().required('Ingrese apellido'),
     sexo: yup.string().required('Ingrese el Genero'),
     correo: yup.string().email('Ingrese correo valido').required('Obligatorio su correo'),
+    dni: yup.string().required('Obligatorio su DNI'),
     celular: yup.number('Solo numeros').integer('Solo numeros!!').positive().required('Ingrese Su numero telefonico'),
   });
 
@@ -23,7 +24,7 @@ const schema = yup.object().shape({
 const FormularioCliente = ({ hidden, openModal }) => {
     const { register, handleSubmit,  formState: { errors } , reset } = useForm({  resolver: yupResolver(schema) });
     const {postCliente, idCliente}=useContext(ClienteContext);
-    const { getPlan, plan, postMatricula} = useContext(PlanPagoContext)
+    const { getPlan, plan, postReserva} = useContext(PlanPagoContext)
 
 
     const [active, setActive] =useState(false)
@@ -40,14 +41,15 @@ const FormularioCliente = ({ hidden, openModal }) => {
     
 
 
-    const onSubmit=(data )=>{
+    const onSubmit=(data,e )=>{
         siguienteFormulario()
         postCliente(data)
-    
+        e.target.reset()
+        reset(yupResolver)
       
    }
    const matricula=()=>{
-        postMatricula(cardSelect, idCliente)
+        postReserva(cardSelect, idCliente)
         openModal()
         setActive(false)
    }
@@ -91,6 +93,13 @@ const FormularioCliente = ({ hidden, openModal }) => {
                             <span className='text_normal font-semibold text-sm '>CORREO </span>
                             <input className='p-2 mt-1 inputText ' placeholder='xxxxxxx@gmail.com' type="text"   {...register("correo",{required:true})}   />
                             <p className='text-left text-xs font-normal m-0 text-red-600'>{errors.correo?.message }</p>
+                            
+                        </div>
+
+                        <div className=' col-span-1 flex flex-col'>
+                            <span className='text_normal font-semibold text-sm '>DNI </span>
+                            <input className='p-2 mt-1 inputText ' placeholder='00000000' type="text"   {...register("dni",{required:true})}   />
+                            <p className='text-left text-xs font-normal m-0 text-red-600'>{errors.dni?.message }</p>
                             
                         </div>
 

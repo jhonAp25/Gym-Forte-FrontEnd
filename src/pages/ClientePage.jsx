@@ -12,7 +12,8 @@ import { PlanPagoContext } from '../context/PlanPagoContext';
 
 const ClientePage = () => {
     const {getCliente, cliente,getClienteBusqueda}=useContext(ClienteContext)
-    const {getMatriculaId} =useContext(PlanPagoContext)
+    const {getReservaId, getPagoCliente} =useContext(PlanPagoContext)
+   // const {getPagoCliente,pago, clienteMatricula} =useContext(PlanPagoContext)
 
     const [hidden , setHidden] = useState(false)
     const [clienteData , setClienteData] = useState([])
@@ -22,8 +23,9 @@ const ClientePage = () => {
     const openModal =()=>{ setHidden(!hidden) }
 
     const selectCliente=(id)=>{
-        getMatriculaId(id)
-
+        getReservaId(id)
+        //alert(id)
+        getPagoCliente(id)
         setDetalle(true)
 
         

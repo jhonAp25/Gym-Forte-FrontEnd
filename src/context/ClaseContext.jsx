@@ -47,18 +47,15 @@ const ClaseProvider = ({children}) => {
 
     
       const getClaseDisciplina=  (id)=>{   
-         axios.get(url +'clase/disciplina/' + id).then(({data})=>{      
-
-          setClase(data)
-             
-           
+         axios.get(url +'clase/disciplina/' + id).then(({data})=>{       
  
-         
-         
+         setClase(data)
       
         }).catch((error)=>{
         
           console.log(error.response);
+          
+         
           
         })
       }

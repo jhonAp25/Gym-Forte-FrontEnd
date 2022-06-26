@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Switch,Route} from "react-router-dom";
+import {BrowserRouter as Router, Switch,Route , Redirect} from "react-router-dom";
 import './App.css';
 import './react-big-calendar.css';
 import Navbar from "./components/Navbar";
@@ -17,6 +17,17 @@ import { LoginProvider } from "./context/LoginContext";
 import PlanPago from "./pages/PlanPago";
 import { ClienteProvider } from "./context/ClienteContext";
 import { PlanPagoProvider } from "./context/PlanPagoContext";
+
+
+
+
+const RouteAdmin =({ component : Component , ...rest})=>{
+  const token = localStorage.getItem('rol')
+return <Route {...rest} > {token ==='ADMIN'  ?  <Component/> : <Redirect to="/" /> }  </Route> 
+}
+
+
+
 
 function App() {
   return (
@@ -38,13 +49,13 @@ function App() {
          
          <Notificacion/>
          <div style={{width: '80%'}} >
-            <Route exact path="/inicio" component={DashboardAdmin} />
+            <RouteAdmin exact path="/inicio" component={DashboardAdmin} />
             
-            <Route exact path="/cliente" component={ClientePage}  />
-            <Route exact path="/clase" component={ClasesPage} />
-            <Route exact path="/plan_pago" component={PlanPago}  />
-            <Route exact path="/trainer" component={TrainerPage} />
-            <Route exact path="/disciplina" component={DisciplinaPage} />
+            <RouteAdmin exact path="/cliente" component={ClientePage}  />
+            <RouteAdmin exact path="/clase" component={ClasesPage} />
+            <RouteAdmin exact path="/plan_pago" component={PlanPago}  />
+            <RouteAdmin exact path="/trainer" component={TrainerPage} />
+            <RouteAdmin exact path="/disciplina" component={DisciplinaPage} />
            
          </div>
         

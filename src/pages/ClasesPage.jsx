@@ -32,13 +32,11 @@ const ClasesPage = () => {
         
 
         setNewEvento([])
+        
 
-        clase.map(c=>{
-             setNewEvento([...newEvento,{
-               title : c.disciplina.nombre,
-               start: new Date(c.horaIni),
-               end:  new Date(c.horaFin)}])
-        })
+       
+
+     
        
         console.log(newEvento);
 
